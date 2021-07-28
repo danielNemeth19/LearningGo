@@ -1,24 +1,41 @@
 package main
-import "fmt"
+import (
+    "fmt"
+    "strings"
+    "sort"
+    "os"
+    "bufio"
+    "strconv"
+)
+
+
+func _convert(s string) string {
+    return strings.Trim(s, "\n")
+}
 
 
 func main(){
+    
     my_slice := make([]int, 0, 3)
-    fmt.Println(my_slice)
-    fmt.Printf("Before append: len of my_slice is: %d - capaciy of my_slice is: %d\n", len(my_slice), cap(my_slice))
-    
-    my_slice = append(my_slice, 1)
-    fmt.Println(my_slice)
-    fmt.Printf("After append: len of my_slice is: %d - capaciy of my_slice is: %d\n", len(my_slice), cap(my_slice))
-    fmt.Printf("First element of my_slice: %d\n", my_slice[0])
-    
-    my_slice = append(my_slice, 2)
-    fmt.Printf("After append: len %d - capaciy: %d\n", len(my_slice), cap(my_slice))
-    
-    my_slice = append(my_slice, 3)
-    fmt.Printf("After append: len %d - capaciy: %d\n", len(my_slice), cap(my_slice))
-    
-    my_slice = append(my_slice, 4)
-    fmt.Printf("After append: len %d - capaciy: %d\n", len(my_slice), cap(my_slice))
-    
+    for true {
+        fmt.Println("Enter an integer!")
+        in := bufio.NewReader(os.Stdin)
+        inputSting, _ := in.ReadString('\n')
+        s := _convert(inputSting)
+        
+        if s == "X" {
+            fmt.Println("Exit signal received")
+            os.Exit(1)
+        }
+        
+        number, err := strconv.Atoi(s)
+        if err != nil {
+            fmt.Printf("Error: %v\n", err)
+        }
+        if err == nil {
+            my_slice = append(my_slice, number)
+            sort.Ints(my_slice)
+            fmt.Println(my_slice) 
+        }
+    }
 }
