@@ -7,7 +7,7 @@ import "strconv"
 
 func test_strconv(){
     i, _ := strconv.Atoi("42")
-    fmt.Println("Result strconv.Atoi %d\n", i)
+    fmt.Printf("Result strconv.Atoi %d\n", i)
     
     i2 := 10
 	s := strconv.Itoa(i2)
