@@ -1,3 +1,3 @@
-module home/daniel/go/src/LearningGo
+module LearningGo
 
 go 1.16
