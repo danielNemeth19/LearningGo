@@ -32,6 +32,12 @@ type Triangle struct {
 }
 
 
+type Rectangle struct {
+    width float64
+    length float64
+}
+
+
 func (t Triangle) Area() float64 {
     area := 0.5 * t.base * t.height
     return area 
@@ -40,6 +46,18 @@ func (t Triangle) Area() float64 {
 
 func (t Triangle) Perimeter() float64 {
     perimeter := t.base + t.a + t.c
+    return perimeter
+}
+
+
+func (r Rectangle) Area() float64 {
+    area := r.width * r.length
+    return area
+}
+
+
+func (r Rectangle) Perimeter() float64 {
+    perimeter := 2 * (r.width + r.length)
     return perimeter
 }
 
@@ -53,6 +71,14 @@ func main() {
     var i interface{} = myt
     _, flag := i.(Shape2D)
     fmt.Printf("Triangle satisfies the Shape2D interface: %v\n", flag)
+    
+    myr := Rectangle{width:2, length:4}
+    fmt.Println(myr.Area())
+    fmt.Println(myr.Perimeter())
+    
+    var i2 interface{} = myr
+    _, flag2 := i2.(Shape2D)
+    fmt.Printf("Rectangle satisfies the Shape2D interface: %v\n", flag2)
 }
 
 
