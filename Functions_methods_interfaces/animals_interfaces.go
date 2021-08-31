@@ -167,10 +167,7 @@ func main(){
             fmt.Printf("Line should have three parts (command animal subj): got %d\n", len(input))
             continue
         }
-        command := input[0]
-        name := input[1]
-        subj := input[2]
-        
+        command, name, subj := input[0], input[1], input[2]        
         if !_validate_command(command){
             fmt.Printf("Input given as command not recognized: %s (Should be one of these: query, newanimal)\n", command)
             continue
