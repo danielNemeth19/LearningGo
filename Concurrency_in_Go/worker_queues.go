@@ -1,6 +1,7 @@
 package main
 import (
     "fmt"
+//     "time"
 )
 
 
@@ -34,4 +35,5 @@ func main(){
     for c := 0; c < numberOfJobs; c++ {
         <- done
     }
+    fmt.Println("finished")
 }
